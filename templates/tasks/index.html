@@ -20,6 +20,13 @@
         {% endif %}
     </div>
 
+    <a href="/tasks/{{task.id}}">{{task.description}}</a>
+
+    <form action="/tasks/{{task.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+
+    </form>
+
 {% endfor %}
 
 

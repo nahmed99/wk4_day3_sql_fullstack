@@ -50,6 +50,10 @@ def create_task():
 
 # SHOW
 # GET '/tasks/<id>' -> Show some html for a specific task
+@tasks_blueprint.route('/tasks/<id>')
+def show_task(id):
+    task = task_repository.select(id)
+    return render_template("tasks/show.html", task=task)
 
 
 # EDIT
@@ -62,3 +66,10 @@ def create_task():
 
 # DELETE
 # DELETE '/tasks/<id>' -> Handle the delete - to delete a specific task
+# We can't use HTTP DELETE because HTML forms don't fo DELETE...so...we
+# will use this unsecure method - this could be open to hacker attacks,
+# by injecting dodgy html to potentially being able to delete many users...
+@tasks_blueprint.route("/tasks/<id>/delete", methods=["POST"])
+def delete_task(id):
+    task_repository.delete(id)
+    return redirect('/tasks')

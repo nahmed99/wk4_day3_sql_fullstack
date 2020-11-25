@@ -6,6 +6,14 @@
 #
 # Then run this file as a normal python program...
 #
+#
+# Any issues, then you could type in the following commands (in terminal):
+# psql  (to launch psql terminal)
+# \c database_name  (to connect to the db)
+# select * from table;  (or any other sql commands...)
+#
+
+
 
 
 import pdb
