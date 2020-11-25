@@ -16,9 +16,14 @@ def tasks():
 
 # NEW
 # GET '/tasks/new' ==> show html form to create a new task
+# We added the methods variable to be SPECIFIC that only want GET requests here.
+@tasks_blueprint.route("/tasks/new", methods=["GET"])
+def new_task():
+    return render_template("tasks/new.html")
 
 # CREATE
 # POST '/tasks' ==> handle the POST from the new form
+# Note: This will be the same route as the on defined before the tasks() function
 
 # SHOW
 # GET '/tasks/<id>' ==> Show some html for a specific task
@@ -30,4 +35,4 @@ def tasks():
 # PUT '/tasks/<id>' ==> handle the PUT from the edit form
 
 # DELETE
-# DELETE '/tasks/<id>' ==> Handle the delete - to delete a specific task.
+# DELETE '/tasks/<id>' ==> Handle the delete - to delete a specific task
