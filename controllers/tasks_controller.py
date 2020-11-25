@@ -23,14 +23,16 @@ def tasks():
 def new_task():
     users = user_repository.select_all()
     # return render_template("tasks/new.html", all_users=['Colin', 'Niall', 'Peter'])
+    # We are passing the list of user in  so that they can be added to a
+    # drop-down list (for user to choose from - see new.html file)
     return render_template("tasks/new.html", all_users=users)
 
 # CREATE
 # POST '/tasks' -> handle the POST from the new form
-# Note: This will be the same route as the on defined before the tasks() function
+# Note: This will be the same route as the one defined before the tasks() function
 @tasks_blueprint.route("/tasks", methods=["POST"])
 def create_task():
-    # grab the form data for the description, user_id, duraton and completed
+    # grab the form data for the description, user_id, duration and completed
     description = request.form['description']
     user_id = request.form['user_id']
     duration = request.form['duration']
