@@ -4,9 +4,10 @@
 
 
 {% for task in all_tasks %}
-    {{task.user.first_name}} 
+    
 
     <div class="description">
+        {{task.user.first_name}} 
         {{task.description}} 
         <span>Duration: {{task.duration}}</span>
     </div>
