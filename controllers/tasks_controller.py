@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Blueprint
 from repositories import task_repository
+import repositories.user_repository as user_repository
 
 
 tasks_blueprint = Blueprint("tasks", __name__)
@@ -19,7 +20,9 @@ def tasks():
 # We added the methods variable to be SPECIFIC that only want GET requests here.
 @tasks_blueprint.route("/tasks/new", methods=["GET"])
 def new_task():
-    return render_template("tasks/new.html")
+    users = user_repository.select_all()
+    # return render_template("tasks/new.html", all_users=['Colin', 'Niall', 'Peter'])
+    return render_template("tasks/new.html", all_users=users)
 
 # CREATE
 # POST '/tasks' ==> handle the POST from the new form
