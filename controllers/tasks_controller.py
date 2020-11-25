@@ -24,6 +24,9 @@ def new_task():
 # CREATE
 # POST '/tasks' ==> handle the POST from the new form
 # Note: This will be the same route as the on defined before the tasks() function
+@tasks_blueprint.route("/tasks", methods=["POST"])
+def create_task():
+    print("post was called")
 
 # SHOW
 # GET '/tasks/<id>' ==> Show some html for a specific task
