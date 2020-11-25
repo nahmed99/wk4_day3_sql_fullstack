@@ -2,8 +2,24 @@
 
 {% block content %}
 
-{{ all_tasks }}
+
+{% for task in all_tasks %}
+    {{task.user.first_name}} 
+
+    <div class="description">
+        {{task.description}} 
+        <span>Duration: {{task.duration}}</span>
+    </div>
+
+    <div class="buttons">
+        {% if task.completed == True %}
+            🦺
+        {% else %}
+            🥾
+        {% endif %}
+    </div>
+
+{% endfor %}
 
 
-This is where out list of tasks will appear.
 {% endblock %}

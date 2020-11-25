@@ -12,3 +12,22 @@ def tasks():
 
     # pass the data from line above to the route in the render_tamplate
     return render_template("tasks/index.html", all_tasks=tasks)
+
+
+# NEW
+# GET '/tasks/new' ==> show html form to create a new task
+
+# CREATE
+# POST '/tasks' ==> handle the POST from the new form
+
+# SHOW
+# GET '/tasks/<id>' ==> Show some html for a specific task
+
+# EDIT
+# GET '/tasks/<id>/edit' ==> Show some html form to edit a specific task
+
+# UPDATE
+# PUT '/tasks/<id>' ==> handle the PUT from the edit form
+
+# DELETE
+# DELETE '/tasks/<id>' ==> Handle the delete - to delete a specific task.
